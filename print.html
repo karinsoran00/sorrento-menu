@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>&#x645;&#x6CE;&#x646;&#x6CC;&#x648;&#x6CC; &#x6A9;&#x627;&#x63A;&#x6D5;&#x632; · Sorrento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+:root {
+  --stone: #efe6d8;
+  --paper: #f8f3ea;
+  --ink: #3a3228;
+  --gold: #b8904e;
+  --gold-2: #e7d3a4;
+  --line: #e3d3b4;
+  --muted: #7a6d5c;
+  --sign: #1c1814;
+  --serif: "Cinzel", Palatino, Georgia, serif;
+  --sans: "Outfit", "Noto Sans Arabic", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #f7f1e4, transparent 60%),
+    var(--stone);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.4;
+}
+h1, h2 { font-family: var(--serif); font-weight: 600; margin: 0; }
+p { margin: 0; }
+button, a { font: inherit; }
+
+.brand-lockup { display: flex; align-items: center; gap: 14px; }
+.mark { width: 78px; height: 78px; color: var(--gold); flex: none; }
+.brand-lockup h1 {
+  font-size: 42px;
+  letter-spacing: .18em;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.sign-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--gold);
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.sign-line::before, .sign-line::after {
+  content: "";
+  height: 1px;
+  width: 36px;
+  background: var(--gold);
+}
+.place { margin-top: 10px; color: var(--muted); letter-spacing: .04em; }
+a.call { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.langs { display: flex; gap: 6px; }
+.langs button {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.langs button.on { background: var(--sign); color: var(--gold-2); border-color: var(--sign); }
+
+body.digital { max-width: 760px; margin: 0 auto; padding: 32px 20px 72px; }
+body.digital .mast { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+body.digital main { margin-top: 36px; display: grid; gap: 22px; }
+body.digital section {
+  background: rgba(255, 252, 246, .72);
+  border: 1px solid var(--line);
+  padding: 16px 18px 6px;
+}
+body.digital h2 {
+  font-size: 15px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--gold);
+}
+body.digital article { padding: 12px 0; border-top: 1px solid transparent; }
+body.digital article + article { border-top-color: #efe4d0; }
+body.digital .dish { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+body.digital .dish strong { font-weight: 560; }
+body.digital .dish span { white-space: nowrap; color: var(--gold); font-variant-numeric: tabular-nums; }
+body.digital article p { color: var(--muted); margin-top: 4px; font-size: 14px; }
+
+body.paper { padding: 24px; }
+.tools {
+  max-width: 920px;
+  margin: 0 auto 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.tools p { color: var(--muted); margin-right: auto; }
+.tools button, .tools a {
+  background: var(--sign);
+  color: var(--gold-2);
+  text-decoration: none;
+  border: 1px solid var(--sign);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.tools a { background: transparent; color: var(--ink); border-color: var(--gold); }
+.sheet {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--gold);
+  box-shadow: 0 18px 50px rgba(58, 50, 40, .08);
+  padding: 36px 40px 32px;
+}
+.paper-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.qr-block {
+  width: 132px;
+  background: var(--sign);
+  color: var(--gold-2);
+  text-align: center;
+  padding: 10px 10px 12px;
+  flex: none;
+}
+.qr-block img { width: 108px; height: 108px; background: white; display: block; margin: 0 auto; }
+.qr-block p { margin-top: 8px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.columns { margin-top: 32px; columns: 2; column-gap: 22px; }
+.columns section {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  padding: 12px 14px 4px;
+}
+.columns h2 {
+  font-size: 13px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--gold);
+  margin-bottom: 4px;
+}
+.dish-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  break-inside: avoid;
+}
+.dish-row strong { font-weight: 560; }
+.dish-row p { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.dish-row em { font-style: normal; white-space: nowrap; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+@media print {
+  body.paper { background: white; padding: 0; }
+  .no-print { display: none !important; }
+  .sheet { border: 0; box-shadow: none; max-width: none; padding: 0; }
+}
+@media (max-width: 720px) {
+  .columns { columns: 1; }
+  .sheet, body.digital { padding-left: 16px; padding-right: 16px; }
+  .brand-lockup h1 { font-size: 28px; letter-spacing: .12em; }
+  .mark { width: 64px; height: 64px; }
+  .paper-top { align-items: start; }
+  body.digital .mast { flex-direction: column; }
+}
+
+</style>
+</head>
+<body class="paper">
+    <div class="tools no-print">
+        <button type="button" onclick="window.print()">&#x686;&#x627;&#x67E;&#x6A9;&#x631;&#x62F;&#x646;</button>
+        <a href="https://karinsoran00.github.io/sorrento-menu/">&#x645;&#x6CE;&#x646;&#x6CC;&#x648;&#x6CC; &#x62F;&#x6CC;&#x62C;&#x6CC;&#x62A;&#x627;&#x6B5;</a>
+    </div>
+    <article class="sheet">
+        <header class="paper-top">
+            <div>
+                <div class="brand-lockup">
+    <svg class="mark" viewBox="0 0 120 120" aria-hidden="true">
+        <circle cx="58" cy="66" r="36" fill="none" stroke="currentColor" stroke-width="1.7" />
+        <text x="58" y="80" text-anchor="middle" font-family="Cinzel, Palatino, serif" font-size="46">S</text>
+        <g fill="currentColor">
+            <path d="M78 34c10 1 24 12 28 22-10 0-18-4-24-12 1 9 0 18-4 26-4-10-6-20-3-28 1-3 2-6 3-8z" />
+            <ellipse cx="96" cy="28" rx="7" ry="3.2" transform="rotate(-28 96 28)" />
+            <ellipse cx="108" cy="36" rx="6" ry="2.8" transform="rotate(18 108 36)" />
+            <ellipse cx="90" cy="22" rx="6" ry="2.6" transform="rotate(-55 90 22)" />
+            <ellipse cx="112" cy="48" rx="5.5" ry="2.4" transform="rotate(42 112 48)" />
+        </g>
+    </svg>
+    <div>
+        <h1>Sorrento</h1>
+        <p class="sign-line"><span>&#x686;&#x6CE;&#x634;&#x62A;&#x62E;&#x627;&#x646;&#x6D5;</span></p>
+    </div>
+</div>
+
+                    <p class="place">Sulaymaniyah - SHA CITY · <a class="call" href="tel:&#x2B;9647714997071">&#x2B;964 07714997071</a> </p>
+            </div>
+            <div class="qr-block">
+                <span class="qr-inline">
+<svg width="108" height="108" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 37 37" stroke="none">
+	<rect width="100%" height="100%" fill="#ffffff"/>
+	<path d="M2,2h7v1h-7z M10,2h1v5h-1z M11,2h2v1h-2z M14,2h8v1h-8z M23,2h1v1h-1z M25,2h1v3h-1z M28,2h7v1h-7z M2,3h1v6h-1z M8,3h1v6h-1z M11,3h1v1h-1z M15,3h2v3h-2z M17,3h2v1h-2z M20,3h2v1h-2z M24,3h1v3h-1z M28,3h1v6h-1z M34,3h1v6h-1z M4,4h3v3h-3z M12,4h1v1h-1z M21,4h1v1h-1z M30,4h3v3h-3z M11,5h1v1h-1z M14,5h1v5h-1z M17,5h1v3h-1z M19,5h1v1h-1z M15,6h1v2h-1z M18,6h1v1h-1z M20,6h3v2h-3z M25,6h1v2h-1z M11,7h1v1h-1z M26,7h1v5h-1z M3,8h5v1h-5z M10,8h1v2h-1z M12,8h1v3h-1z M16,8h1v1h-1z M18,8h1v2h-1z M20,8h1v2h-1z M22,8h1v3h-1z M24,8h1v2h-1z M29,8h5v1h-5z M11,9h1v1h-1z M19,9h1v2h-1z M21,9h1v1h-1z M23,9h1v3h-1z M25,9h1v1h-1z M3,10h2v2h-2z M6,10h1v1h-1z M8,10h2v1h-2z M13,10h1v1h-1z M16,10h2v1h-2z M28,10h1v2h-1z M30,10h5v1h-5z M5,11h1v5h-1z M7,11h1v1h-1z M9,11h1v1h-1z M14,11h2v2h-2z M17,11h1v6h-1z M18,11h1v2h-1z M27,11h1v2h-1z M29,11h1v2h-1z M34,11h1v2h-1z M2,12h1v1h-1z M6,12h1v1h-1z M8,12h1v1h-1z M11,12h1v1h-1z M19,12h1v1h-1z M22,12h1v1h-1z M32,12h2v1h-2z M4,13h1v1h-1z M9,13h2v1h-2z M13,13h1v1h-1z M15,13h1v6h-1z M21,13h1v1h-1z M23,13h1v2h-1z M25,13h1v2h-1z M28,13h1v3h-1z M30,13h1v1h-1z M33,13h1v1h-1z M2,14h2v2h-2z M6,14h1v1h-1z M8,14h2v1h-2z M14,14h1v1h-1z M26,14h1v3h-1z M27,14h1v1h-1z M31,14h1v1h-1z M4,15h1v3h-1z M7,15h1v5h-1z M11,15h2v1h-2z M16,15h1v3h-1z M22,15h1v3h-1z M29,15h1v2h-1z M34,15h1v2h-1z M6,16h1v1h-1z M8,16h1v1h-1z M12,16h3v1h-3z M20,16h1v1h-1z M23,16h1v3h-1z M27,16h1v1h-1z M31,16h3v1h-3z M2,17h1v2h-1z M11,17h1v2h-1z M13,17h2v1h-2z M24,17h1v1h-1z M28,17h1v7h-1z M30,17h1v1h-1z M33,17h1v1h-1z M3,18h1v1h-1z M8,18h1v1h-1z M10,18h1v1h-1z M17,18h1v2h-1z M19,18h1v1h-1z M21,18h1v1h-1z M26,18h2v2h-2z M5,19h1v1h-1z M12,19h2v1h-2z M16,19h1v7h-1z M20,19h1v3h-1z M24,19h1v1h-1z M29,19h1v1h-1z M33,19h1v6h-1z M34,19h1v2h-1z M3,20h1v1h-1z M8,20h1v1h-1z M10,20h1v2h-1z M13,20h1v2h-1z M15,20h1v1h-1z M18,20h2v3h-2z M22,20h2v1h-2z M26,20h1v1h-1z M32,20h1v1h-1z M2,21h1v1h-1z M4,21h4v1h-4z M9,21h1v2h-1z M14,21h1v3h-1z M21,21h1v1h-1z M23,21h1v6h-1z M24,21h1v2h-1z M29,21h2v1h-2z M3,22h1v1h-1z M7,22h2v1h-2z M11,22h1v3h-1z M15,22h1v1h-1z M22,22h1v2h-1z M27,22h1v2h-1z M31,22h1v2h-1z M34,22h1v3h-1z M4,23h2v2h-2z M17,23h1v2h-1z M20,23h1v2h-1z M26,23h1v2h-1z M2,24h1v1h-1z M6,24h1v3h-1z M8,24h2v1h-2z M24,24h1v1h-1z M29,24h2v3h-2z M3,25h1v1h-1z M5,25h1v2h-1z M10,25h1v1h-1z M12,25h1v1h-1z M14,25h1v2h-1z M21,25h2v1h-2z M28,25h1v2h-1z M31,25h1v1h-1z M2,26h1v1h-1z M4,26h1v1h-1z M7,26h3v1h-3z M15,26h1v3h-1z M18,26h1v1h-1z M26,26h1v5h-1z M27,26h1v1h-1z M33,26h1v1h-1z M10,27h4v1h-4z M19,27h2v2h-2z M30,27h1v8h-1z M31,27h1v1h-1z M34,27h1v2h-1z M2,28h7v1h-7z M10,28h1v1h-1z M12,28h1v1h-1z M17,28h2v1h-2z M22,28h1v4h-1z M25,28h1v1h-1z M28,28h1v1h-1z M32,28h2v1h-2z M2,29h1v6h-1z M8,29h1v6h-1z M11,29h1v3h-1z M14,29h1v1h-1z M23,29h1v3h-1z M24,29h1v1h-1z M4,30h3v3h-3z M10,30h1v1h-1z M12,30h1v1h-1z M15,30h4v1h-4z M21,30h1v1h-1z M27,30h3v1h-3z M31,30h1v1h-1z M13,31h3v1h-3z M20,31h1v1h-1z M32,31h3v1h-3z M10,32h1v2h-1z M12,32h1v1h-1z M14,32h2v2h-2z M18,32h1v1h-1z M24,32h1v2h-1z M26,32h1v3h-1z M34,32h1v1h-1z M11,33h1v2h-1z M16,33h2v1h-2z M20,33h4v1h-4z M28,33h1v1h-1z M33,33h1v2h-1z M3,34h5v1h-5z M12,34h1v1h-1z M14,34h1v1h-1z M17,34h3v1h-3z M21,34h3v1h-3z M25,34h1v1h-1z M27,34h1v1h-1z M34,34h1v1h-1z" fill="#000000"/>
+</svg>
+</span>
+                <p>&#x628;&#x6C6; &#x645;&#x6CE;&#x646;&#x6CC;&#x648;&#x6CC; &#x62F;&#x6CC;&#x62C;&#x6CC;&#x62A;&#x627;&#x6B5; &#x6A9;&#x6C6;&#x62F;&#x6D5;&#x6A9;&#x6D5; &#x633;&#x6A9;&#x627;&#x646; &#x628;&#x6A9;&#x6D5;</p>
+            </div>
+        </header>
+        <div class="columns">
+                <section>
+                    <h2>&#x634;&#x627;&#x648;&#x631;&#x645;&#x627;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x634;&#x627;&#x648;&#x631;&#x645;&#x627;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;</strong>
+                            </div>
+                            <em>2,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x634;&#x627;&#x648;&#x631;&#x645;&#x627; &#x67E;&#x6D5;&#x646;&#x6CC;&#x631; &#x632;&#x6CC;&#x627;&#x62F;&#x6D5;</strong>
+                            </div>
+                            <em>2,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x634;&#x627;&#x648;&#x631;&#x645;&#x627;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x634;&#x627;&#x648;&#x631;&#x645;&#x627;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A; &#x632;&#x6CC;&#x627;&#x62F;&#x6D5;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x634;&#x627;&#x648;&#x631;&#x645;&#x627;</strong>
+                            </div>
+                            <em>5,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x634;&#x627;&#x648;&#x631;&#x645;&#x627;&#x6CC; &#x62A;&#x6D5;&#x648;&#x627;&#x648;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>6,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;&#x6CC; &#x62A;&#x6D5;&#x648;&#x627;&#x648;</strong>
+                            </div>
+                            <em>8,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x633;&#x627;&#x62C;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x633;&#x627;&#x62C;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x633;&#x627;&#x62C;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x645;&#x6D5;&#x6A9;&#x633;&#x6CC;&#x6A9;&#x6CC;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x645;&#x6D5;&#x6A9;&#x633;&#x6CC;&#x6A9;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;</strong>
+                            </div>
+                            <em>2,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x645;&#x6D5;&#x6A9;&#x633;&#x6CC;&#x6A9;&#x6CC;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x645;&#x6D5;&#x6A9;&#x633;&#x6CC;&#x6A9;&#x6CC;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x641;&#x627;&#x647;&#x6CC;&#x62A;&#x627;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x644;&#x641;&#x6D5;&#x6CC; &#x641;&#x627;&#x647;&#x6CC;&#x62A;&#x627;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x641;&#x627;&#x647;&#x6CC;&#x62A;&#x627;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>5,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x641;&#x627;&#x647;&#x6CC;&#x62A;&#x627;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>8,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x6A9;&#x648;&#x628;&#x6D5;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x6A9;&#x648;&#x628;&#x6D5;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x6A9;&#x648;&#x628;&#x6D5;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x634;&#x6CC;&#x634; &#x62A;&#x627;&#x648;&#x648;&#x642;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x644;&#x641;&#x6D5;&#x6CC; &#x634;&#x6CC;&#x634; &#x62A;&#x627;&#x648;&#x648;&#x642;</strong>
+                            </div>
+                            <em>2,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x634;&#x6CC;&#x634; &#x62A;&#x627;&#x648;&#x648;&#x642;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x634;&#x6CC;&#x634; &#x62A;&#x627;&#x648;&#x648;&#x642;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x628;&#x6D5;&#x631;&#x6AF;&#x631;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x628;&#x6D5;&#x631;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x686;&#x6CC;&#x632;&#x628;&#x6D5;&#x631;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x628;&#x6D5;&#x631;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x6AF;&#x6C6;&#x634;&#x62A;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x686;&#x6CC;&#x632;&#x628;&#x6D5;&#x631;&#x6AF;&#x631;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x628;&#x6D5;&#x631;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x686;&#x6CE;&#x634;&#x62A;&#x62E;&#x627;&#x646;&#x6D5;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x67E;&#x627;&#x633;&#x62A;&#x627;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x627;&#x633;&#x62A;&#x627;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;&#x6CC; &#x62A;&#x627;&#x632;&#x6D5;</strong>
+                            </div>
+                            <em>5,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x627;&#x633;&#x62A;&#x627; &#x628;&#x6D5; &#x67E;&#x6D5;&#x646;&#x6CC;&#x631;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x628;&#x686;&#x648;&#x648;&#x6A9;&#x6CC; &#x62A;&#x6CE;&#x6A9;&#x6D5;&#x6B5;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x628;&#x686;&#x648;&#x648;&#x6A9;&#x6CC; &#x633;&#x6D5;&#x648;&#x632;&#x6D5;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x645;&#x627;&#x631;&#x6AF;&#x631;&#x6CC;&#x62A;&#x627;&#x6CC; &#x628;&#x686;&#x648;&#x648;&#x6A9;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x67E;&#x6D5;&#x67E;&#x6D5;&#x631;&#x6C6;&#x646;&#x6CC;&#x6CC; &#x628;&#x686;&#x648;&#x648;&#x6A9;</strong>
+                            </div>
+                            <em>5,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x646;&#x627;&#x648;&#x6D5;&#x646;&#x62F;&#x6CC; &#x62A;&#x6CE;&#x6A9;&#x6D5;&#x6B5;</strong>
+                            </div>
+                            <em>6,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x646;&#x627;&#x648;&#x6D5;&#x646;&#x62F;&#x6CC; &#x633;&#x6D5;&#x648;&#x632;&#x6D5;</strong>
+                            </div>
+                            <em>5,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x645;&#x627;&#x631;&#x6AF;&#x631;&#x6CC;&#x62A;&#x627;&#x6CC; &#x646;&#x627;&#x648;&#x6D5;&#x646;&#x62F;</strong>
+                            </div>
+                            <em>5,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x67E;&#x6CC;&#x62A;&#x632;&#x627;&#x6CC; &#x67E;&#x6D5;&#x67E;&#x6D5;&#x631;&#x6C6;&#x646;&#x6CC;&#x6CC; &#x646;&#x627;&#x648;&#x6D5;&#x646;&#x62F;</strong>
+                            </div>
+                            <em>6,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x645;&#x631;&#x6CC;&#x634;&#x6A9;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x633;&#x62A;&#x6CC;&#x6A9;&#x6CC; &#x645;&#x631;&#x6CC;&#x634;&#x6A9;&#x60C; &#x698;&#x6D5;&#x645;</strong>
+                            </div>
+                            <em>8,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x641;&#x6CC;&#x646;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x628;&#x686;&#x648;&#x648;&#x6A9;</strong>
+                            </div>
+                            <em>2,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x641;&#x6CC;&#x646;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x6AF;&#x6D5;&#x648;&#x631;&#x6D5;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x641;&#x6CC;&#x646;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x67E;&#x6D5;&#x646;&#x6CC;&#x631;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x6A9;&#x631;&#x6CC;&#x633;&#x67E;&#x6CC;&#x60C; &#x698;&#x6D5;&#x645;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x6A9;&#x631;&#x6CC;&#x633;&#x67E;&#x6CC;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x644;&#x641;&#x6D5;&#x6CC; &#x6A9;&#x631;&#x6CC;&#x633;&#x67E;&#x6CC;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x632;&#x6CC;&#x646;&#x6AF;&#x6D5;&#x631;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x632;&#x6CC;&#x646;&#x6AF;&#x6D5;&#x631;&#x6CC; &#x67E;&#x6D5;&#x646;&#x6CC;&#x631;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x6A9;&#x646;&#x62A;&#x627;&#x6A9;&#x6CC; &#x628;&#x6C6;&#x6B5;&#x60C; &#x698;&#x6D5;&#x645;</strong>
+                            </div>
+                            <em>6,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x6A9;&#x646;&#x62A;&#x627;&#x6A9;&#x6CC;</strong>
+                            </div>
+                            <em>3,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x632;&#x6CC;&#x632;&#x6C6;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x633;&#x627;&#x646;&#x62F;&#x648;&#x6CC;&#x686;&#x6CC; &#x633;&#x6A9;&#x627;&#x644;&#x6C6;&#x67E;</strong>
+                            </div>
+                            <em>2,500 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6CC;&#x648; &#x646;&#x6D5;&#x641;&#x6D5;&#x631; &#x633;&#x6A9;&#x627;&#x644;&#x6C6;&#x67E;</strong>
+                            </div>
+                            <em>4,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x633;&#x6A9;&#x627;&#x644;&#x6C6;&#x67E;&#x6CC; &#x62A;&#x6D5;&#x648;&#x627;&#x648;</strong>
+                            </div>
+                            <em>8,000 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+                <section>
+                    <h2>&#x633;&#x627;&#x646;&#x62F;&#x648;&#x6CC;&#x686;</h2>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x644;&#x641;&#x6D5;&#x6CC; &#x633;&#x648;&#x698;&#x648;&#x648;&#x6A9;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x641;&#x6D5;&#x644;&#x627;&#x641;&#x6CC;&#x644;</strong>
+                            </div>
+                            <em>1,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x646;&#x6D5;&#x641;&#x6D5;&#x631;&#x6CC; &#x641;&#x6D5;&#x644;&#x627;&#x641;&#x6CC;&#x644;</strong>
+                            </div>
+                            <em>3,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x698;&#x6D5;&#x645;&#x6CC; &#x62F;&#x627;&#x6CC;&#x62A;</strong>
+                            </div>
+                            <em>7,000 &#x62F;.&#x639;</em>
+                        </div>
+                        <div class="dish-row">
+                            <div>
+                                <strong>&#x628;&#x631;&#x6CC;&#x627;&#x646;&#x6CC;</strong>
+                            </div>
+                            <em>1,500 &#x62F;.&#x639;</em>
+                        </div>
+                </section>
+        </div>
+    </article>
+</body>
+</html>
+

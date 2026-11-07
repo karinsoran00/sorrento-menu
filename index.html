@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sorrento</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+:root {
+  --stone: #efe6d8;
+  --paper: #f8f3ea;
+  --ink: #3a3228;
+  --gold: #b8904e;
+  --gold-2: #e7d3a4;
+  --line: #e3d3b4;
+  --muted: #7a6d5c;
+  --sign: #1c1814;
+  --serif: "Cinzel", Palatino, Georgia, serif;
+  --sans: "Outfit", "Noto Sans Arabic", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background:
+    radial-gradient(1200px 500px at 50% -10%, #f7f1e4, transparent 60%),
+    var(--stone);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.4;
+}
+h1, h2 { font-family: var(--serif); font-weight: 600; margin: 0; }
+p { margin: 0; }
+button, a { font: inherit; }
+
+.brand-lockup { display: flex; align-items: center; gap: 14px; }
+.mark { width: 78px; height: 78px; color: var(--gold); flex: none; }
+.brand-lockup h1 {
+  font-size: 42px;
+  letter-spacing: .18em;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.sign-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--gold);
+  letter-spacing: .42em;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+.sign-line::before, .sign-line::after {
+  content: "";
+  height: 1px;
+  width: 36px;
+  background: var(--gold);
+}
+.place { margin-top: 10px; color: var(--muted); letter-spacing: .04em; }
+a.call { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+
+.langs { display: flex; gap: 6px; }
+.langs button {
+  border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+.langs button.on { background: var(--sign); color: var(--gold-2); border-color: var(--sign); }
+
+body.digital { max-width: 760px; margin: 0 auto; padding: 32px 20px 72px; }
+body.digital .mast { display: flex; justify-content: space-between; gap: 16px; align-items: start; }
+body.digital main { margin-top: 36px; display: grid; gap: 22px; }
+body.digital section {
+  background: rgba(255, 252, 246, .72);
+  border: 1px solid var(--line);
+  padding: 16px 18px 6px;
+}
+body.digital h2 {
+  font-size: 15px;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--gold);
+}
+body.digital article { padding: 12px 0; border-top: 1px solid transparent; }
+body.digital article + article { border-top-color: #efe4d0; }
+body.digital .dish { display: flex; justify-content: space-between; gap: 16px; align-items: baseline; }
+body.digital .dish strong { font-weight: 560; }
+body.digital .dish span { white-space: nowrap; color: var(--gold); font-variant-numeric: tabular-nums; }
+body.digital article p { color: var(--muted); margin-top: 4px; font-size: 14px; }
+
+body.paper { padding: 24px; }
+.tools {
+  max-width: 920px;
+  margin: 0 auto 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.tools p { color: var(--muted); margin-right: auto; }
+.tools button, .tools a {
+  background: var(--sign);
+  color: var(--gold-2);
+  text-decoration: none;
+  border: 1px solid var(--sign);
+  border-radius: 999px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+.tools a { background: transparent; color: var(--ink); border-color: var(--gold); }
+.sheet {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--paper);
+  border: 1px solid var(--gold);
+  box-shadow: 0 18px 50px rgba(58, 50, 40, .08);
+  padding: 36px 40px 32px;
+}
+.paper-top { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.qr-block {
+  width: 132px;
+  background: var(--sign);
+  color: var(--gold-2);
+  text-align: center;
+  padding: 10px 10px 12px;
+  flex: none;
+}
+.qr-block img { width: 108px; height: 108px; background: white; display: block; margin: 0 auto; }
+.qr-block p { margin-top: 8px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.columns { margin-top: 32px; columns: 2; column-gap: 22px; }
+.columns section {
+  break-inside: avoid;
+  margin-bottom: 16px;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  padding: 12px 14px 4px;
+}
+.columns h2 {
+  font-size: 13px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-bottom: 7px;
+  border-bottom: 1px solid var(--gold);
+  margin-bottom: 4px;
+}
+.dish-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  break-inside: avoid;
+}
+.dish-row strong { font-weight: 560; }
+.dish-row p { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.dish-row em { font-style: normal; white-space: nowrap; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+@media print {
+  body.paper { background: white; padding: 0; }
+  .no-print { display: none !important; }
+  .sheet { border: 0; box-shadow: none; max-width: none; padding: 0; }
+}
+@media (max-width: 720px) {
+  .columns { columns: 1; }
+  .sheet, body.digital { padding-left: 16px; padding-right: 16px; }
+  .brand-lockup h1 { font-size: 28px; letter-spacing: .12em; }
+  .mark { width: 64px; height: 64px; }
+  .paper-top { align-items: start; }
+  body.digital .mast { flex-direction: column; }
+}
+
+    </style>
+</head>
+<body class="digital">
+    <header class="mast">
+        <div>
+            <div class="brand-lockup">
+                <svg class="mark" viewBox="0 0 120 120" aria-hidden="true">
+                    <circle cx="58" cy="66" r="36" fill="none" stroke="currentColor" stroke-width="1.7" />
+                    <text x="58" y="80" text-anchor="middle" font-family="Cinzel, Palatino, serif" font-size="46">S</text>
+                    <g fill="currentColor">
+                        <path d="M78 34c10 1 24 12 28 22-10 0-18-4-24-12 1 9 0 18-4 26-4-10-6-20-3-28 1-3 2-6 3-8z" />
+                        <ellipse cx="96" cy="28" rx="7" ry="3.2" transform="rotate(-28 96 28)" />
+                        <ellipse cx="108" cy="36" rx="6" ry="2.8" transform="rotate(18 108 36)" />
+                        <ellipse cx="90" cy="22" rx="6" ry="2.6" transform="rotate(-55 90 22)" />
+                        <ellipse cx="112" cy="48" rx="5.5" ry="2.4" transform="rotate(42 112 48)" />
+                    </g>
+                </svg>
+                <div>
+                    <h1>Sorrento</h1>
+                    <p class="sign-line"><span id="sign">چێشتخانە</span></p>
+                </div>
+            </div>
+            <p class="place">Sulaymaniyah - SHA CITY · <a class="call" href="tel:+9647714997071">+964 07714997071</a></p>
+        </div>
+        <div class="langs">
+            <button type="button" data-lang="ckb" class="on">کوردی</button>
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="ar">العربية</button>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 data-en="Shawarma" data-ar="شاورما" data-ckb="شاورما">شاورما</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Chicken shawarma" data-ar="شاورما دجاج" data-ckb="شاورمای مریشک">شاورمای مریشک</strong>
+                    <span>2,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Shawarma, extra cheese" data-ar="شاورما جبن إضافي" data-ckb="شاورما پەنیر زیادە">شاورما پەنیر زیادە</strong>
+                    <span>2,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Meat shawarma" data-ar="شاورما لحم" data-ckb="شاورمای گۆشت">شاورمای گۆشت</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Meat shawarma, extra" data-ar="شاورما لحم إضافية" data-ckb="شاورمای گۆشت زیادە">شاورمای گۆشت زیادە</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half shawarma platter" data-ar="نصف نفر شاورما" data-ckb="نیو نەفەر شاورما">نیو نەفەر شاورما</strong>
+                    <span>5,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full shawarma platter" data-ar="نفر شاورما كامل" data-ckb="نەفەری شاورمای تەواو">نەفەری شاورمای تەواو</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half meat platter" data-ar="نصف نفر لحم" data-ckb="نیو نەفەر گۆشت">نیو نەفەر گۆشت</strong>
+                    <span>6,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full meat platter" data-ar="نفر لحم كامل" data-ckb="نەفەری گۆشتی تەواو">نەفەری گۆشتی تەواو</strong>
+                    <span>8,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Saj" data-ar="صاج" data-ckb="ساج">ساج</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Chicken saj" data-ar="صاج دجاج" data-ckb="ساجی مریشک">ساجی مریشک</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Meat saj" data-ar="صاج لحم" data-ckb="ساجی گۆشت">ساجی گۆشت</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Mexican" data-ar="مكسيكي" data-ckb="مەکسیکی">مەکسیکی</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Mexican chicken" data-ar="مكسيكي دجاج" data-ckb="مەکسیکی مریشک">مەکسیکی مریشک</strong>
+                    <span>2,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half Mexican platter" data-ar="نصف نفر مكسيكي" data-ckb="نیو نەفەر مەکسیکی">نیو نەفەر مەکسیکی</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full Mexican platter" data-ar="نفر مكسيكي" data-ckb="نەفەری مەکسیکی">نەفەری مەکسیکی</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Fajita" data-ar="فاهيتا" data-ckb="فاهیتا">فاهیتا</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Meat fajita wrap" data-ar="لفة فاهيتا لحم" data-ckb="لفەی فاهیتای گۆشت">لفەی فاهیتای گۆشت</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half meat fajita" data-ar="نصف نفر فاهيتا لحم" data-ckb="نیو نەفەر فاهیتای گۆشت">نیو نەفەر فاهیتای گۆشت</strong>
+                    <span>5,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full meat fajita" data-ar="نفر فاهيتا لحم" data-ckb="نەفەری فاهیتای گۆشت">نەفەری فاهیتای گۆشت</strong>
+                    <span>8,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Kubba" data-ar="كبة" data-ckb="کوبە">کوبە</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half kubba platter" data-ar="نصف نفر كبة" data-ckb="نیو نەفەر کوبە">نیو نەفەر کوبە</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full kubba platter" data-ar="نفر كبة" data-ckb="نەفەری کوبە">نەفەری کوبە</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Shish tawook" data-ar="شيش طاووق" data-ckb="شیش تاووق">شیش تاووق</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Shish tawook wrap" data-ar="لفة شيش طاووق" data-ckb="لفەی شیش تاووق">لفەی شیش تاووق</strong>
+                    <span>2,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half shish tawook" data-ar="نصف نفر شيش طاووق" data-ckb="نیو نەفەر شیش تاووق">نیو نەفەر شیش تاووق</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full shish tawook" data-ar="نفر شيش طاووق" data-ckb="نەفەری شیش تاووق">نەفەری شیش تاووق</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Burgers" data-ar="برجر" data-ckb="بەرگر">بەرگر</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Chicken burger" data-ar="برجر دجاج" data-ckb="بەرگەری مریشک">بەرگەری مریشک</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Chicken cheeseburger" data-ar="تشيز برجر دجاج" data-ckb="چیزبەرگەری مریشک">چیزبەرگەری مریشک</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Meat burger" data-ar="برجر لحم" data-ckb="بەرگەری گۆشت">بەرگەری گۆشت</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Cheeseburger" data-ar="تشيز برجر" data-ckb="چیزبەرگر">چیزبەرگر</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="House burger" data-ar="برجر المطعم" data-ckb="بەرگەری چێشتخانە">بەرگەری چێشتخانە</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Pasta" data-ar="باستا" data-ckb="پاستا">پاستا</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Fresh chicken pasta" data-ar="باستا دجاج طازجة" data-ckb="پاستای مریشکی تازە">پاستای مریشکی تازە</strong>
+                    <span>5,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Cheese pasta" data-ar="باستا بالجبن" data-ckb="پاستا بە پەنیر">پاستا بە پەنیر</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Pizza" data-ar="بيتزا" data-ckb="پیتزا">پیتزا</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Small mixed pizza" data-ar="بيتزا صغيرة مشكلة" data-ckb="پیتزای بچووکی تێکەڵ">پیتزای بچووکی تێکەڵ</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Small vegetable pizza" data-ar="بيتزا صغيرة خضار" data-ckb="پیتزای بچووکی سەوزە">پیتزای بچووکی سەوزە</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Small margherita" data-ar="بيتزا مارغريتا صغيرة" data-ckb="پیتزای مارگریتای بچووک">پیتزای مارگریتای بچووک</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Small pepperoni" data-ar="بيتزا بيبروني صغيرة" data-ckb="پیتزای پەپەرۆنیی بچووک">پیتزای پەپەرۆنیی بچووک</strong>
+                    <span>5,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Medium mixed pizza" data-ar="بيتزا وسط مشكلة" data-ckb="پیتزای ناوەندی تێکەڵ">پیتزای ناوەندی تێکەڵ</strong>
+                    <span>6,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Medium vegetable pizza" data-ar="بيتزا وسط خضار" data-ckb="پیتزای ناوەندی سەوزە">پیتزای ناوەندی سەوزە</strong>
+                    <span>5,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Medium margherita" data-ar="بيتزا وسط مارغريتا" data-ckb="پیتزای مارگریتای ناوەند">پیتزای مارگریتای ناوەند</strong>
+                    <span>5,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Medium pepperoni" data-ar="بيتزا وسط بيبروني" data-ckb="پیتزای پەپەرۆنیی ناوەند">پیتزای پەپەرۆنیی ناوەند</strong>
+                    <span>6,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Chicken" data-ar="دجاج" data-ckb="مریشک">مریشک</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Chicken steak meal" data-ar="وجبة ستيك دجاج" data-ckb="ستیکی مریشک، ژەم">ستیکی مریشک، ژەم</strong>
+                    <span>8,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Small fingers" data-ar="أصابع صغيرة" data-ckb="فینگەری بچووک">فینگەری بچووک</strong>
+                    <span>2,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Large fingers" data-ar="أصابع كبيرة" data-ckb="فینگەری گەورە">فینگەری گەورە</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Cheese fingers" data-ar="أصابع بالجبن" data-ckb="فینگەری پەنیر">فینگەری پەنیر</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Crispy meal" data-ar="وجبة كرسبي" data-ckb="کریسپی، ژەم">کریسپی، ژەم</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half crispy platter" data-ar="نصف نفر كرسبي" data-ckb="نیو نەفەر کریسپی">نیو نەفەر کریسپی</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Crispy wrap" data-ar="لفة كرسبي" data-ckb="لفەی کریسپی">لفەی کریسپی</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Zinger" data-ar="زنجر" data-ckb="زینگەر">زینگەر</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Cheese zinger" data-ar="زنجر بالجبن" data-ckb="زینگەری پەنیر">زینگەری پەنیر</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Kentucky bites meal" data-ar="وجبة كرات كنتاكي" data-ckb="کنتاکی بۆڵ، ژەم">کنتاکی بۆڵ، ژەم</strong>
+                    <span>6,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half Kentucky platter" data-ar="نصف نفر كنتاكي" data-ckb="نیو نەفەر کنتاکی">نیو نەفەر کنتاکی</strong>
+                    <span>3,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Zizo" data-ar="زيزو" data-ckb="زیزۆ">زیزۆ</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Escalope sandwich" data-ar="ساندويش إسكالوب" data-ckb="ساندویچی سکالۆپ">ساندویچی سکالۆپ</strong>
+                    <span>2,500 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Half escalope platter" data-ar="نصف نفر إسكالوب" data-ckb="نیو نەفەر سکالۆپ">نیو نەفەر سکالۆپ</strong>
+                    <span>4,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Full escalope platter" data-ar="نفر إسكالوب كامل" data-ckb="نەفەری سکالۆپی تەواو">نەفەری سکالۆپی تەواو</strong>
+                    <span>8,000 د.ع</span>
+                </div>
+            </article>
+        </section>
+        <section>
+            <h2 data-en="Sandwiches" data-ar="ساندويش" data-ckb="ساندویچ">ساندویچ</h2>
+            <article>
+                <div class="dish">
+                    <strong data-en="Sujuk wrap" data-ar="لفة سجق" data-ckb="لفەی سوژووک">لفەی سوژووک</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Falafel" data-ar="فلافل" data-ckb="فەلافیل">فەلافیل</strong>
+                    <span>1,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Falafel platter" data-ar="نفر فلافل" data-ckb="نەفەری فەلافیل">نەفەری فەلافیل</strong>
+                    <span>3,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Diet meal" data-ar="وجبة دايت" data-ckb="ژەمی دایت">ژەمی دایت</strong>
+                    <span>7,000 د.ع</span>
+                </div>
+            </article>
+            <article>
+                <div class="dish">
+                    <strong data-en="Biryani" data-ar="برياني" data-ckb="بریانی">بریانی</strong>
+                    <span>1,500 د.ع</span>
+                </div>
+            </article>
+        </section>
+    </main>
+    <script>
+        const sign = { en: "Restaurant", ar: "مطعم", ckb: "چێشتخانە" };
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = lang === "en" ? "ltr" : "rtl";
+            document.querySelectorAll("[data-en]").forEach(function (el) {
+                el.textContent = el.getAttribute("data-" + lang);
+            });
+            document.getElementById("sign").textContent = sign[lang];
+            document.querySelectorAll(".langs button").forEach(function (button) {
+                button.classList.toggle("on", button.getAttribute("data-lang") === lang);
+            });
+        }
+        document.querySelectorAll(".langs button").forEach(function (button) {
+            button.addEventListener("click", function () { setLang(button.getAttribute("data-lang")); });
+        });
+    </script>
+</body>
+</html>

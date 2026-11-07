@@ -194,6 +194,21 @@ body.paper { padding: 24px; }
   .mark { width: 64px; height: 64px; }
   .paper-top { align-items: start; }
   body.digital .mast { flex-direction: column; }
+  body.digital .cat-head,
+  .columns .cat-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  body.digital .cat-photo,
+  .columns .cat-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    order: -1;
+  }
+  body.digital h2,
+  .columns h2 { letter-spacing: .14em; }
 }
 
     </style>

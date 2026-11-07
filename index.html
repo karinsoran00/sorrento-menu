@@ -82,14 +82,29 @@ body.digital section {
   border: 1px solid var(--line);
   padding: 16px 18px 6px;
 }
+.cat-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 8px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid var(--gold);
+}
 body.digital h2 {
   font-size: 15px;
   letter-spacing: .28em;
   text-transform: uppercase;
   color: var(--gold);
-  padding-bottom: 8px;
-  margin-bottom: 4px;
-  border-bottom: 1px solid var(--gold);
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+.cat-photo {
+  width: 76px;
+  height: 76px;
+  object-fit: cover;
+  flex: none;
+  border-radius: 2px;
 }
 body.digital article { padding: 12px 0; border-top: 1px solid transparent; }
 body.digital article + article { border-top-color: #efe4d0; }
@@ -144,15 +159,17 @@ body.paper { padding: 24px; }
   border: 1px solid var(--line);
   padding: 12px 14px 4px;
 }
+.columns .cat-head { gap: 10px; padding-bottom: 7px; }
 .columns h2 {
   font-size: 13px;
   letter-spacing: .26em;
   text-transform: uppercase;
   color: var(--gold);
-  padding-bottom: 7px;
-  border-bottom: 1px solid var(--gold);
-  margin-bottom: 4px;
+  margin: 0;
+  flex: 1;
+  min-width: 0;
 }
+.columns .cat-photo { width: 54px; height: 54px; }
 .dish-row {
   display: flex;
   justify-content: space-between;
@@ -166,6 +183,7 @@ body.paper { padding: 24px; }
 
 @media print {
   body.paper { background: white; padding: 0; }
+  .cat-photo { print-color-adjust: exact; }
   .no-print { display: none !important; }
   .sheet { border: 0; box-shadow: none; max-width: none; padding: 0; }
 }
@@ -210,7 +228,7 @@ body.paper { padding: 24px; }
     </header>
     <main>
         <section>
-            <h2 data-en="Shawarma" data-ar="شاورما" data-ckb="شاورما">شاورما</h2>
+            <div class="cat-head"><h2 data-en="Shawarma" data-ar="شاورما" data-ckb="شاورما">شاورما</h2><img class="cat-photo" src="menu/shawarma.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Chicken shawarma" data-ar="شاورما دجاج" data-ckb="شاورمای مریشک">شاورمای مریشک</strong>
@@ -261,7 +279,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Saj" data-ar="صاج" data-ckb="ساج">ساج</h2>
+            <div class="cat-head"><h2 data-en="Saj" data-ar="صاج" data-ckb="ساج">ساج</h2><img class="cat-photo" src="menu/saj.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Chicken saj" data-ar="صاج دجاج" data-ckb="ساجی مریشک">ساجی مریشک</strong>
@@ -276,7 +294,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Mexican" data-ar="مكسيكي" data-ckb="مەکسیکی">مەکسیکی</h2>
+            <div class="cat-head"><h2 data-en="Mexican" data-ar="مكسيكي" data-ckb="مەکسیکی">مەکسیکی</h2><img class="cat-photo" src="menu/mexican.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Mexican chicken" data-ar="مكسيكي دجاج" data-ckb="مەکسیکی مریشک">مەکسیکی مریشک</strong>
@@ -297,7 +315,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Fajita" data-ar="فاهيتا" data-ckb="فاهیتا">فاهیتا</h2>
+            <div class="cat-head"><h2 data-en="Fajita" data-ar="فاهيتا" data-ckb="فاهیتا">فاهیتا</h2><img class="cat-photo" src="menu/fajita.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Meat fajita wrap" data-ar="لفة فاهيتا لحم" data-ckb="لفەی فاهیتای گۆشت">لفەی فاهیتای گۆشت</strong>
@@ -318,7 +336,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Kubba" data-ar="كبة" data-ckb="کوبە">کوبە</h2>
+            <div class="cat-head"><h2 data-en="Kubba" data-ar="كبة" data-ckb="کوبە">کوبە</h2><img class="cat-photo" src="menu/kubba.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Half kubba platter" data-ar="نصف نفر كبة" data-ckb="نیو نەفەر کوبە">نیو نەفەر کوبە</strong>
@@ -333,7 +351,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Shish tawook" data-ar="شيش طاووق" data-ckb="شیش تاووق">شیش تاووق</h2>
+            <div class="cat-head"><h2 data-en="Shish tawook" data-ar="شيش طاووق" data-ckb="شیش تاووق">شیش تاووق</h2><img class="cat-photo" src="menu/tawook.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Shish tawook wrap" data-ar="لفة شيش طاووق" data-ckb="لفەی شیش تاووق">لفەی شیش تاووق</strong>
@@ -354,7 +372,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Burgers" data-ar="برجر" data-ckb="بەرگر">بەرگر</h2>
+            <div class="cat-head"><h2 data-en="Burgers" data-ar="برجر" data-ckb="بەرگر">بەرگر</h2><img class="cat-photo" src="menu/burger.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Chicken burger" data-ar="برجر دجاج" data-ckb="بەرگەری مریشک">بەرگەری مریشک</strong>
@@ -387,7 +405,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Pasta" data-ar="باستا" data-ckb="پاستا">پاستا</h2>
+            <div class="cat-head"><h2 data-en="Pasta" data-ar="باستا" data-ckb="پاستا">پاستا</h2><img class="cat-photo" src="menu/pasta.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Fresh chicken pasta" data-ar="باستا دجاج طازجة" data-ckb="پاستای مریشکی تازە">پاستای مریشکی تازە</strong>
@@ -402,7 +420,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Pizza" data-ar="بيتزا" data-ckb="پیتزا">پیتزا</h2>
+            <div class="cat-head"><h2 data-en="Pizza" data-ar="بيتزا" data-ckb="پیتزا">پیتزا</h2><img class="cat-photo" src="menu/pizza.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Small mixed pizza" data-ar="بيتزا صغيرة مشكلة" data-ckb="پیتزای بچووکی تێکەڵ">پیتزای بچووکی تێکەڵ</strong>
@@ -453,7 +471,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Chicken" data-ar="دجاج" data-ckb="مریشک">مریشک</h2>
+            <div class="cat-head"><h2 data-en="Chicken" data-ar="دجاج" data-ckb="مریشک">مریشک</h2><img class="cat-photo" src="menu/chicken.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Chicken steak meal" data-ar="وجبة ستيك دجاج" data-ckb="ستیکی مریشک، ژەم">ستیکی مریشک، ژەم</strong>
@@ -546,7 +564,7 @@ body.paper { padding: 24px; }
             </article>
         </section>
         <section>
-            <h2 data-en="Sandwiches" data-ar="ساندويش" data-ckb="ساندویچ">ساندویچ</h2>
+            <div class="cat-head"><h2 data-en="Sandwiches" data-ar="ساندويش" data-ckb="ساندویچ">ساندویچ</h2><img class="cat-photo" src="menu/sandwich.jpg" alt="" /></div>
             <article>
                 <div class="dish">
                     <strong data-en="Sujuk wrap" data-ar="لفة سجق" data-ckb="لفەی سوژووک">لفەی سوژووک</strong>
